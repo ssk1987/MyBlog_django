@@ -1,0 +1,150 @@
+{% load static %}
+{% load news_filters %}
+<div class="side fr">
+                <section class="widget abautor">
+                    <div class="widget-list">
+                        <div class="widget_avatar"
+                             style="background-image: url(http://www.tkv5.cn/zb_users/theme/tpure/style/images/015_s.png);">
+                            <a href="http://www.tkv5.cn/author-1.html">
+                                <img class="widget-about-image"
+                                     src="http://www.tkv5.cn/zb_users/upload/2020/10/202010041601801758119341.jpg"
+                                     alt="http://www.tkv5.cn/" height="70" width="70">
+                            </a>
+                        </div>
+                        <div class="widget-about-intro">
+                            <div class="name">
+                                <h3>None.K.Sun</h3>
+                                <span class="autlv aut-1 vs">V</span>
+                                <span class="autlv aut-1">管理员</span>
+                            </div>
+                            <div class="widget-about-desc">文章 79 篇 <i>|</i> 评论 2 次</div>
+                            <div class="widget-article-newest"><span>最新文章</span></div>
+                            <ul class="widget-about-posts">
+                                <li>
+                                    <div class="widget-posts-text">
+                                        <a class="widget-posts-title" href="http://www.tkv5.cn/post/231.html" title=""
+                                           target="_blank">
+                                            ps中常用的快捷键 </a>
+                                        <div class="widget-posts-meta">
+                                            <i>02/26</i>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="widget-posts-text">
+                                        <a class="widget-posts-title" href="http://www.tkv5.cn/post/230.html" title=""
+                                           target="_blank">
+                                            eyoucms管理员密码修改教程。 </a>
+                                        <div class="widget-posts-meta">
+                                            <i>02/26</i>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="widget-posts-text">
+                                        <a class="widget-posts-title" href="http://www.tkv5.cn/post/229.html" title=""
+                                           target="_blank">
+                                            最为一个牛破天的计算机程序员，必须掌握思维小亮点 </a>
+                                        <div class="widget-posts-meta">
+                                            <i>02/23</i>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section class="widget" id="gonggao">
+                    <ul class="widget-box gonggao">
+                        <a target="_blank" class="orange" href="/"><strong>侧栏公告</strong>
+                            <h3>寄语</h3>
+                            <p>博客成立于2018年8月，本博客专注于站长资源分享，技术分享和交流，欢迎大家加入其中，有你更加精彩，为网友们提供一个温暖的家!</p>
+                        </a>
+                    </ul>
+                </section>
+                <section class="widget wow fadeInDown" id="divComments"
+                         style="visibility: visible; animation-name: fadeInDown;">
+                    <h3 class="widget-title"><i class="fa fa-divComments"></i><span>最新留言</span></h3>
+                    <section class="widget-box divComments">
+                        <div class="comment-item">
+                            <div class="comment-meta">
+                                <div class="meta-item">
+                    <span class="comment-avatar">
+                        <i class="thumb" style="background-image:url(http://www.tkv5.cn/zb_users/avatar/0.png" )"></i>
+                    </span>一位WordPress评论者<span class="autlv aut-5">评论者</span>
+                                </div>
+                                <span class="comment-views">03月25日</span>
+                            </div>
+                            <div class="comment-content">
+                                <p><a href="http://www.tkv5.cn/post/0.html#cmt1" title="未命名">嗨，这是一条评论。要开始审核、编辑及删除评论，请访问仪表盘的“评论”页面。评论者头像来自Gravatar。</a>
+                                </p>
+                            </div>
+                            <h4>
+                                <a href="http://www.tkv5.cn/post/0.html#cmt1">
+                                    <i class="fa fa-file-text-o"></i>
+                                    未命名 </a>
+                            </h4>
+                        </div>
+                        <div class="comment-item">
+                            <div class="comment-meta">
+                                <div class="meta-item">
+                    <span class="comment-avatar">
+                        <i class="thumb" style="background-image:url(http://www.tkv5.cn/zb_users/avatar/0.png" )"></i>
+                    </span>一位WordPress评论者<span class="autlv aut-5">评论者</span>
+                                </div>
+                                <span class="comment-views">03月25日</span>
+                            </div>
+                            <div class="comment-content">
+                                <p><a href="http://www.tkv5.cn/post/0.html#cmt2" title="未命名">嗨，这是一条评论。要开始审核、编辑及删除评论，请访问仪表盘的“评论”页面。评论者头像来自Gravatar。</a>
+                                </p>
+                            </div>
+                            <h4>
+                                <a href="http://www.tkv5.cn/post/0.html#cmt2">
+                                    <i class="fa fa-file-text-o"></i>
+                                    未命名 </a>
+                            </h4>
+                        </div>
+                    </section>
+                </section>
+                <section class="widget wow fadeInDown" id="side_con"
+                         style="visibility: visible; animation-name: fadeInDown;">
+                    <h3 class="widget-title"><i class="fa fa-side_con"></i><span>热门文章</span></h3>
+                    <ul class="widget-box side_con">
+                        {% for hot in hots %}
+                        <li>
+                            <div class="widget-posts-text">
+                                <a class="widget-posts-title" href="{% url 'index' %}article/show-{{ hot.id }}.html" title="{{ hot.title }}"
+                                   target="_blank">{{ hot.title }}</a>
+                                <div class="widget-posts-meta"><i>{{ hot.created_time|time_since }}</i></div>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </section>
+                <section class="widget wow fadeInDown" id="side_hot"
+                         style="visibility: visible; animation-name: fadeInDown;">
+                    <h3 class="widget-title"><i class="fa fa-side_hot"></i><span>推荐文章</span></h3>
+                    <div class="widget-box side_hot">
+                        {% for tui in index_tui %}
+                        <div class="hotimg">
+                            <div class="list-item list-overlay-content">
+                                <div class="media media-2x1">
+                                    <a class="media-content"
+                                                                href="{% url 'index' %}article/show-{{ tui.id }}.html" target="_blank"
+                                                                style="background-image:url({% url 'index' %}media/{{ tui.img }})"><span
+                                        class="overlay"></span></a></div>
+                                <div class="list-content">
+                                    <div class="list-body"><a href="{% url 'index' %}article/show-{{ tui.id }}.html"
+                                                              class="list-title h-2x">{{ tui.title }}</a></div>
+                                    <div class="list-footer">
+                                        <div class="text-muted text-xs">值得一看 ，
+                                            <time class="d-inline-block">{{ tui.created_time|time_since }}</time>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </section>
+            </div>

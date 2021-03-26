@@ -1,0 +1,70 @@
+{% load static %}
+<aside class="sidebar">
+  <div id="search-7" class="widget widget_search">
+    <h3 class="widget-title">搜索干货</h3>
+    <form  name="formsearch" class="search-form" action="/plus/search.php">
+      <input type="text" class="keyword" name="q" placeholder="输入关键词搜索..." value="">
+      <input type="submit" class="submit" value="&#xf002;">
+    </form>
+  </div>
+  <div id="wpcom-post-thumb-2" class="widget widget_post_thumb">
+    <h3 class="widget-title">热门文章</h3>
+    <ul>
+      {dede:arclist typeid='' row='3' titlelen='50' orderby='click'}
+	  <li class="item">
+        <div class="item-img"> <a class="item-img-inner" href="[field:arcurl/]" title="[field:title/]"> <img class="j-lazy" src="/skin/images/lazy.png" data-original="[field:litpic/]" width="480" height="300" alt="[field:title/]"> </a> </div>
+        <div class="item-content">
+          <p class="item-title"><a href="[field:arcurl/]" title="[field:title/]">[field:title/]</a></p>
+          <p class="item-date">[field:pubdate function="MyDate('Y年m月d日',@me)"/]</p>
+        </div>
+      </li>
+	  {/dede:arclist}
+    </ul>
+  </div>
+  <div id="wpcom-image-ad-4" class="widget widget_image_ad"> <a href="javascript:;" target="_blank"> <img class="j-lazy" src="/skin/images/lazy.png" data-original="/skin/images/iqingua3.png"/> </a> </div>
+  <div id="wpcom-post-thumb-8" class="widget widget_post_thumb">
+    <h3 class="widget-title">推荐文章</h3>
+    <ul>
+      {dede:arclist flag='c' row='3' titlelen='50' orderby='pubdate'}
+	  <li class="item">
+        <div class="item-img"> <a class="item-img-inner" href="[field:arcurl/]" title="[field:title/]"> <img class="j-lazy" src="/skin/images/lazy.png" data-original="[field:litpic/]" width="480" height="300" alt="[field:title/]"> </a> </div>
+        <div class="item-content">
+          <p class="item-title"><a href="[field:arcurl/]" title="[field:title/]">[field:title/]</a></p>
+          <p class="item-date">[field:pubdate function="MyDate('Y年m月d日',@me)"/]</p>
+        </div>
+      </li>
+	  {/dede:arclist}
+    </ul>
+  </div>
+  <div id="wpcom-image-ad-12" class="widget widget_image_ad"> <a href="javascript:;" target="_blank"> <img class="j-lazy" src="/skin/images/lazy.png" data-original="/skin/images/xiaomao2.png"/> </a> </div>
+  <div id="wpcom-post-thumb-3" class="widget widget_post_thumb">
+    <h3 class="widget-title">经典文章</h3>
+    <ul>
+      {dede:arclist typeid='' row='10' titlelen='50' orderby='click'}
+	  <li class="item">
+        <div class="item-img"> <a class="item-img-inner" href="[field:arcurl/]" title="[field:title/]"> <img class="j-lazy" src="/skin/images/lazy.png" data-original="[field:litpic/]" width="480" height="300" alt="[field:title/]"> </a> </div>
+        <div class="item-content">
+          <p class="item-title"><a href="[field:arcurl/]" title="[field:title/]">[field:title/]</a></p>
+          <p class="item-date">[field:pubdate function="MyDate('Y年m月d日',@me)"/]</p>
+        </div>
+      </li>
+	  {/dede:arclist}
+    </ul>
+  </div>
+  <div id="tag_cloud-3" class="widget widget_tag_cloud">
+    <h3 class="widget-title">热门标签</h3>
+    <div class="tagcloud">
+
+        <a href="/" class="tag-cloud-link tag-link-66 tag-link-position-1" style="font-size: 22pt;" aria-label="[field:tag /]">标签1</a>
+        <a href="/" class="tag-cloud-link tag-link-66 tag-link-position-1" style="font-size: 22pt;" aria-label="[field:tag /]">标签1</a>
+        <a href="/" class="tag-cloud-link tag-link-66 tag-link-position-1" style="font-size: 22pt;" aria-label="[field:tag /]">标签1</a>
+
+    </div>
+  </div>
+  <div id="wpcom-image-ad-5" class="widget widget_image_ad">
+      <a href="javascript:;" target="_blank">
+{#          <img class="j-lazy" src="{% static 'images/lazy.png' %}" data-original="{% static 'images/iqingua3.png' %}"/> #}
+          <img class="j-lazy" src="{% static 'images/iqingua3.png' %}" data-original=""/>
+      </a>
+  </div>
+</aside>

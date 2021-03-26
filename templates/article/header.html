@@ -1,0 +1,113 @@
+{% load static %}
+    <div class="top-bar">
+        <div class="new-header container clearfix">
+            <div class="top-bar-left header-nav fl" data-type="index" data-infoid="index">
+                <div class="m-nav-header">
+                    <div class="m_nav-list"><a href="javascript:;" class="lines js-m-navlist"><i
+                            class="nav-bar"><span></span><span></span><span></span></i></a></div>
+                </div>
+                <div class="m-nav-logo">
+                    <a href="https://blog.python87.com/">
+                        <img src="{% static 'images/logo1.png' %}" alt="全栈记事交流博客">
+                    </a>
+                </div>
+                <div class="m-nav-search">
+                    <a id="m-nav-so" href="javascript:void(0);"><i class="fa fa-search"></i></a>
+                    <div class="mini-search">
+                        <form name="search" class="searchform" method="post"
+                              action="http://www.tkv5.cn/zb_system/cmd.php?act=search">
+                            <input class="searchInput" type="text" name="q" size="11" placeholder="请输入搜索内容..." value=""
+                                   id="ls">
+                            <button type="submit" class="btn-search dtb2" value=""><i class="fa fa-search"></i></button>
+                        </form>
+                    </div>
+                </div>
+                <aside class="mobile_aside mobile_nav">
+                    <div class="top-bar-left pull-left navlogo">
+                        <a href="https://blog.python87.com/" class="logo box">
+                            <img src="{% static 'images/logo1.png' %}" class="logo-light"
+                                 id="logo-light" alt="全栈记事交流博客">
+                            <span class="logo-dark d-none" id="logo-dark">全栈记事交流博客</span>
+                            <b class="shan"></b>
+                        </a>
+                    </div>
+                    <div class="mobile-menu">
+                        <nav class="top-bar-navigation">
+                            <ul class="top-bar-menu nav-pills">
+                                <li class="navbar-item "><a href="https://blog.python87.com/" title=""><i
+                                        class="fa fa-home"></i>首页</a></li>
+                                <li class="navbar-item subcate"><a href="https://blog.python87.com/category-5.html" title=""><i
+                                        class="fa fa-meetup"></i>建站教程</a>
+                                    <div class="subnav"><a href="http://www.tkv5.cn/category-7.html" title="zblog教程">zblog教程</a><a
+                                            href="http://www.tkv5.cn/category-8.html" title="web前端">web前端</a><a
+                                            href="http://www.tkv5.cn/category-4.html" title="wordpress教程">wp教程</a><a
+                                            href="http://www.tkv5.cn/category-12.html" title="eyoucms">eyoucms</a><a
+                                            href="http://www.tkv5.cn/category-11.html" title="思维训练">思维训练</a></div>
+                                </li>
+                                <li class="navbar-item "><a href="http://www.tkv5.cn/category-6.html" title="建站主题"><i
+                                        class="fa fa-book"></i>建站主题</a></li>
+                                <li class="navbar-item "><a href="http://www.tkv5.cn/198.html" title="关于我们"><i
+                                        class="fa fa-imdb"></i>关于我们</a></li>
+                                <li class="navbar-item "><a href="http://cms.tkv5.cn" target="_blank" title="天天特价"><i
+                                        class="fa fa-pinterest-p"></i>天天特价</a></li>
+                                <li class="navbar-item "><a href="http://www.tkv5.cn/category-10.html" title="资源分享"><i
+                                        class="fa fa-info-circle"></i>资源分享</a></li>
+                            </ul>
+                            <div id="sidebar-toggle" class="sidebar-toggle"><span></span></div>
+                        </nav>
+                    </div>
+                </aside>
+            </div>
+            <div class="top-bar-right text-right fr">
+                <div class="top-admin">
+                    <div class="login">
+                        {% if user.is_authenticated %}
+                            <ul>
+                        <li>欢迎<a href="http://www.tkv5.cn/user/User.html">{{ user.username }}</a>
+                            <div class="top-bannel">
+                                <div class="bannel-top">
+                                    <div class="left" id="avator">
+                                        <img src="http://www.tkv5.cn/zb_users/upload/2020/10/202010041601801758119341.jpg" alt="头像">
+                                    </div>
+                                    <div class="left bannel-right">
+                                        <p>{{ user.username }}</p>
+                                        <p>金币0</p>
+                                    </div>
+                                </div>
+                                <div class="user-list" id="user_list">
+                                    <ul>
+                                        <li><i class="fa fa-user"></i><span><a href="http://www.tkv5.cn/user/User.html">个人中心</a></span></li>
+                                        <li><i class="fa fa-book"></i><span><a href="http://www.tkv5.cn/user/Articlelist">我的文章</a></span></li>
+                                        <li><i class="fa fa-hospital-o"></i><span><a href="http://www.tkv5.cn/user/Favorite">我的收藏</a></span></li>
+                                        <li><i class="fa fa-graduation-cap"></i><span><a href="/">个人设置</a></span></li>
+                                    </ul>
+                                    <div class="h20"></div>
+                                    <div class="operate">
+                                        <a href="{% url 'sskUser:logout' %}">安全退出</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                        <i class="fa fa-search"></i>
+                        </li>
+                    </ul>
+                            {% else %}
+                        <i class="fa fa-sign-in"></i>
+                        <a href="{% url 'sskUser:login' %}" target="_self">登陆</a>
+                        <a href="{% url 'sskUser:register' %}" target="_self">注册</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bar_search">
+        <div class="container slide_search">
+            <form name="search" class="searchform" method="post"
+                  action="{% url 'index' %}">
+                <input class="searchInput" type="text" name="q" size="11" placeholder="请输入搜索内容..." value="" id="ls">
+                <button type="submit" class="btn-search dtb2"><i class="fa fa-search"></i>搜索</button>
+            </form>
+        </div>
+    </div>

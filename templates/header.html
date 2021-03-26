@@ -1,0 +1,41 @@
+{% load static %}
+<header class="header">
+    <div class="container clearfix">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar icon-bar-1"></span> <span class="icon-bar icon-bar-2"></span> <span
+                    class="icon-bar icon-bar-3"></span></button>
+            <h1 class="logo"><a href="/" rel="home"><img src="{% static 'images/iqingualogo2-1.png' %}" alt="2222"></a>
+            </h1>
+        </div>
+        <div class="collapse navbar-collapse">
+            <nav class="navbar-left primary-menu">
+                <ul id="menu-%e5%af%bc%e8%88%aa" class="nav navbar-nav wpcom-adv-menu">
+                    <li class="menu-item "><a href="/">首页</a></li>
+
+                    <li class="menu-item">
+                        <a href="/"> 标题</a>
+                        <ul class="dropdown-menu menu-item-wrap menu-item-col-5">
+
+                            <li class='menu-item'><a href='/'>栏目2</a></li>
+
+                        </ul>
+
+                    </li>
+                </ul>
+            </nav>
+            <div class="navbar-action pull-right">
+
+                <div id="j-user-wrap ">
+                    {% if user.is_authenticated %}
+                        <a class="login" href="{% url 'sskUser:login' %}"><i
+                                class="iconfont icon-integral"></i>{{ user.username }}</a>
+                    {% else %}
+                        <a class="login" href="{% url 'sskUser:login' %}">登录</a>
+                        <a class="login register" href="{% url 'sskUser:register' %}">注册</a>
+                        </div>
+                    {% endif %}
+                <a class="publish" href="#"> 投稿</a></div>
+        </div>
+    </div>
+</header>

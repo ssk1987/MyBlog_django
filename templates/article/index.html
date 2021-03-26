@@ -1,0 +1,140 @@
+{% load static %}
+{% load news_filters %}
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Language" content="zh-CN"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>首页</title>
+    <meta name="keywords" content="关键词1,关键词2,关键词3"/>
+    <meta name="description" content="!"/>
+    <link rel="stylesheet" href="{% static 'theme/css/style.css' %}">
+    <link href="{% static 'css/animate.css' %}" rel="stylesheet">
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="{% static 'theme/js/php.js' %}" type="text/javascript"></script>
+    <script src="{% static 'theme/js/js_add.js' %}" type="text/javascript"></script>
+    <script type="text/javascript" src="{% static 'theme/js/common.js' %}"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/Swiper/5.2.0/js/swiper.min.js"></script>
+    <script src="{% static 'js/nprogress.js' %}"></script>
+    <script src="{% static 'theme/js/wow.min.js' %}"></script>
+    <script type="text/javascript">window.tpure = {
+        bannerdisplay: 'on',
+        viewall: 'on',
+        viewallstyle: '0',
+        viewallheight: '1000',
+        singlekey: 'on',
+        pagekey: 'on',
+        removep: 'on',
+    }</script>
+    <link rel="stylesheet" type="text/css" href="http://www.tkv5.cn/zb_users/plugin/YtUser/ytuser.css"/>
+    <link href="http://www.tkv5.cn/zb_users/plugin/fancybox/fancybox.css" rel="stylesheet" type="text/css"/>
+
+    <script src="http://www.tkv5.cn/zb_users/plugin/fancybox/fancybox.js"></script>
+    <script type="text/javascript">$(document).ready(function () {
+        $(".fancybox").fancybox();
+    });</script>
+</head>
+<body class="home home-index">
+<div class="site-main top-main">
+    {% include 'article/header.html' %}
+
+    <div id="main" class="site-main container clearfix">
+        <div class="row">
+            <div class="main fl">
+                <div class="main-slider clearfix">
+                    <div class="sp-slideshow">
+                        <!-- Swiper -->
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+                                {% for b in banner %}
+                                <div class="swiper-slide">
+                                    <a class="block-fea" href="{{ b.link_url }}"
+                                       style="background-image:url({% url 'index' %}media/{{ b.img }});"
+                                       target="_blank"><i class="mask"></i>
+                                        <div class="entyr-icon"></div>
+                                        <header class="swiper-header">
+                                            <span class="swiper-title">{{ b.text_info }}</span>
+                                        </header>
+                                    </a>
+                                </div>
+                                {% endfor %}
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="content" class="side-content auto-multi clearfix">
+                    <div id="post-list" class="home-main index-page auto-main">
+                        <!--页面主体信息-->
+                        {% for a in allarticle %}
+                        <article class="post-list blockimg auto-list wow fadeInDown" id="list1">
+                        <div class="entry-container">
+                            <div class="block-image feaimg">
+                                <a class="block-fea" href="{% url 'index' %}article/show-{{ a.id }}.html" target="_blank">
+                                    <img class="lazy"
+                                         src="{% url 'index' %}media/{{ a.img }}"
+                                         alt="{{ a.title }}" title="{{ a.title }}">
+                                </a>
+                                <div class="entyr-icon"></div>
+                            </div>
+                            <header class="entry-header">
+                                <h2 class="entry-title">
+                                    <a href="{% url 'index' %}article/show-{{ a.id }}.html" target="_blank">{{ a.title }}</a>
+                                </h2>
+                            </header>
+                            <div class="entry-summary ss">
+                                <p>{{ a.excerpt }}... </p>
+                            </div>
+                            <div class="entry-meta fea-meta">
+                                <a href="{% url 'index' %}article/show-{{ a.id }}.html">
+                                    <img src="http://www.tkv5.cn/zb_users/upload/2020/10/202010041601801758119341.jpg"
+                                         alt="" class="avatar avatar-140 photo" height="25" width="25">{{ a.author }}</a>
+                                <span class="separator">/</span>
+                                <a class="meta-cate" href="{% url 'index' %}list-{{ a.category.id }}.html">{{ a.category.name }}</a><span
+                                    class="separator">/</span>
+                                {{ a.created_time|time_since }} <span class="separator">/</span>
+                                <a class="meta-viewnums" href="">0 评论</a><span class="separator">/</span>
+                                <span class="meta-viewnums">{{ a.views }} 阅读</span>
+                            </div>
+                        </div>
+                        </article>
+                        {% endfor %}
+                    </div>
+                    <footer class="pagination wow fadeInDown">
+                        <a href="/">首页</a>
+                        <span class="now-page">1</span>
+                        <span class="next-page"><a href="http://www.tkv5.cn/page_2.html">2</a></span>
+                        <a href="http://www.tkv5.cn/page_3.html">3</a>
+                        <a href="http://www.tkv5.cn/page_2.html">下一页</a>
+                        <a href="http://www.tkv5.cn/page_10.html">尾页</a>
+                    </footer>
+                </div>
+            </div>
+            {% include 'article/index_side.html' %}
+        </div><!--main fl-->
+        <div class="link-box box-shadow wow fadeInDown"><!--友情链接-->
+            <section class="hot-news-title">
+                <h3>友情链接</h3>
+                <span class="suburl"><a href="#" target="_blank">更多<i class="fa fa-plus-circle"></i></a></span>
+            </section>
+            <ul id="link-home">
+                {% for link in links %}
+                <li class="link-item"><a href="{{ link.link_url }}" target="_blank" title="{{ link.link_info }}">{{ link.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div><!--row-->
+    {% include 'article/footer.html' %}
+
+</div>
+<div class="none">
+    <script src="{% static 'custom.js' %}?v=2020-08-28"></script>
+</div>
+<script src="https://www.layuicdn.com/layui-v2.5.4/layui.js"></script>
+<link rel="stylesheet" href="{% static 'theme/css/mochu_us.css' %}" />
+</body>
+</html>

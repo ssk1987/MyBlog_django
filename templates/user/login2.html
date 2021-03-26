@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.33,minimum-scale=1.0,maximum-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <title>会员登录</title>
+    <meta http-equiv="Content-Language" content="zh-CN">
+    <link rel="stylesheet" rev="stylesheet" href="//at.alicdn.com/t/font_2114244_d6n8x48t79b.css" type="text/css"
+          media="all">
+    <link rel="stylesheet" rev="stylesheet" href="{% static 'css/login_style.css' %}" type="text/css" media="all">
+    <style>
+
+    .tx-login-bg {
+        background: url({% static 'images/bg.jpg' %}) no-repeat 0 0;
+    }</style>
+</head>
+<body class="tx-login-bg">
+<div class="tx-login-box">
+    <div class="login-avatar bg-black"><i class="iconfont icon-user-fill"></i></div>
+    <ul class="tx-form-li row">
+        <li class="col-24 col-m-24">
+            <p><input type="text" id="edtUserName" name="username" placeholder="Username"
+                                              class="tx-input"><i>账号(*)</i></p></li>
+        <li class="col-24 col-m-24">
+            <p><input type="password" id="edtPassWord" name="password" placeholder="Password"
+                                              class="tx-input"><i>密码(*)</i></p></li>
+        <li class="col-24 col-m-24">
+            <p class="tx-input-full">
+                <button type="submit" id="loginbtnPost" name="loginbtnPost" class="tx-btn tx-btn-big bg-black">登录</button>
+            </p>
+        </li>
+        <li class="col-12 col-m-12"><p><a href="{% url 'sskUser:register' %}" class="f-12 f-gray">新用户注册</a></p></li>
+        <li class="col-12 col-m-12"><p class="ta-r"><a href="{% url 'sskUser:resetpwd' %}" class="f-12 f-gray">忘记密码</a></p></li>
+    </ul>
+</div>
+</body>
+</html>

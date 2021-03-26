@@ -1,0 +1,190 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+<title>首页</title>
+<meta name="description" content="0" />
+<meta name="keywords" content="0" />
+<meta name="author" content="order by M206 www.ssk1987.cn">
+<meta name="applicable-device" content="pc,mobile" />
+<meta http-equiv="Cache-Control" content="no-transform" />
+<link rel='stylesheet' id='stylesheet-css'  href='{% static "css/style.css" %}' type='text/css' media='all'/>
+<link rel='stylesheet' id='wp-block-library-css'  href='{% static "css/style.min.css" %}' type='text/css' media='all'/>
+<script type='text/javascript' src='{% static "js/jquery.min.js" %}'></script>
+<script type='text/javascript' src='{% static "js/jquery-migrate.min.js" %}'></script>
+<link rel='stylesheet' href='{% static "css/index.css" %}?v1212' type='text/css'/>
+    <link rel="stylesheet" rev="stylesheet" href="//at.alicdn.com/t/font_2114244_d6n8x48t79b.css" type="text/css"
+          media="all">
+<script> (function() {if (!/*@cc_on!@*/0) return;var e = "abbr, article, aside, audio, canvas, datalist, details, dialog, eventsource, figure, footer, header, hgroup, mark, menu, meter, nav, output, progress, section, time, video".split(', ');var i= e.length; while (i--){ document.createElement(e[i]) } })()</script>
+<!--[if lte IE 8]>
+<script src="{% static 'js/respond.min.js' %}"></script>
+<![endif]-->
+</head>
+<body class="home blog el-boxed">
+
+{% include 'header.html' %}
+
+<div id="wrap">
+  <div class="wrap container">
+    <div class="main">
+      <div class="slider-wrap clearfix">
+        <div class="main-slider wpcom-slider swiper-container pull-left">
+          <ul class="swiper-wrapper">
+
+			<li class="swiper-slide"> <a href="[field:arcurl/]" target="_blank"> <img src="[field:litpic/]" alt="[field:title/]"> </a>
+              <h3 class="slide-title"> <a href="[field:arcurl/]" target="_blank">名称</a> </h3>
+            </li>
+
+          </ul>
+          <!-- Add Pagination -->
+          <div class="swiper-pagination"></div>
+          <!-- Add Navigation -->
+          <div class="swiper-button-prev swiper-button-white"></div>
+          <div class="swiper-button-next swiper-button-white"></div>
+        </div>
+        <ul class="feature-post pull-right">
+
+		  <li> <a href="[field:arcurl/]" target="_blank"> <img class="j-lazy" src="{% static 'images/lazy.png' %}" data-original="[field:litpic/]" alt="[field:title/]"> </a> <span>名称名称</span> </li>
+
+        </ul>
+      </div>
+      <div class="sec-panel topic-recommend">
+        <div class="sec-panel-head">
+          <h2><span>今日焦点</span> <small></small></h2>
+        </div>
+        <div class="sec-panel-body">
+          <ul class="list topic-list">
+            {dede:arclist row='4' titlelen='36'}
+            <li class="topic"> <a class="topic-wrap" href="[field:arcurl/]" target="_blank">
+              <div class="cover-container"> <img class="j-lazy" src="[field:litpic/]" data-original="[field:litpic/]"> </div>
+              <span>[field:title/]</span> </a> </li>
+            {/dede:arclist}
+          </ul>
+        </div>
+      </div>
+      <div class="sec-panel main-list">
+        <div class="sec-panel-head">
+          <ul class="list tabs j-newslist">
+            <li class="tab active"><a data-id="0" href="javascript:;">最新文章</a></li>
+            {dede:channel type='top' row='5' noself='yes' }
+            <li class="tab"><a href="javascript:;">[field:typename/]</a></li>
+            {/dede:channel}
+          </ul>
+        </div>
+        <ul class="post-loop post-loop-default tab-wrap clearfix active">
+          {dede:arclist typeid='all' flag='' row='15' titlelen='50' orderby='pubdate'}
+		  <li class="item">
+            <div class="item-img"> <a class="item-img-inner" href="[field:arcurl/]" title="[field:title/]" target="_blank"> <img class="j-lazy" src="/skin/images/lazy.png" data-original="[field:litpic/]" width="480" height="300" alt="[field:title/]"> </a> <a class="item-category" href="/a/fenxiang/" target="_blank">分享</a> </div>
+            <div class="item-content">
+              <h2 class="item-title"> <a href="[field:arcurl/]" title="[field:title/]" target="_blank"> [field:title/] </a> </h2>
+              <div class="item-excerpt">
+                <p>&nbsp;  [field:description function="cn_substr(@me,200)"/]...</p>
+              </div>
+              <div class="item-meta"> <span class="item-meta-li date">[field:pubdate function="tranTime(@me)" /]</span> <span class="item-meta-li views" title="[field:title/]"><i class="fa fa-eye"></i> [field:click/]</span> </div>
+            </div>
+          </li>
+		  {/dede:arclist}
+        </ul>
+        {dede:channelartlist row='5' typeid='top'}
+		<ul class="post-loop post-loop-default tab-wrap clearfix">
+          {dede:arclist typeid='' flag='' row='15' titlelen='50' orderby='pubdate'}
+		  <li class="item">
+            <div class="item-img"> <a class="item-img-inner" href="[field:arcurl/]" title="[field:title/]" target="_blank"> <img class="j-lazy" src="/skin/images/lazy.png" data-original="[field:litpic/]" width="480" height="300" alt="[field:title/]"> </a> <a class="item-category" href="/a/fenxiang/" target="_blank">分享</a> </div>
+            <div class="item-content">
+              <h2 class="item-title"> <a href="[field:arcurl/]" title="[field:title/]" target="_blank"> [field:title/] </a> </h2>
+              <div class="item-excerpt">
+                <p>&nbsp;  [field:description function="cn_substr(@me,200)"/]...</p>
+              </div>
+              <div class="item-meta"> <span class="item-meta-li date">[field:pubdate function="tranTime(@me)" /]</span> <span class="item-meta-li views" title="[field:title/]"><i class="fa fa-eye"></i> [field:click/]</span> </div>
+            </div>
+          </li>
+		  {/dede:arclist}
+        </ul>{/dede:channelartlist} </div>
+    </div>
+    <aside class="sidebar">
+  <div id="search-7" class="widget widget_search">
+    <h3 class="widget-title">搜索干货</h3>
+    <form  name="formsearch" class="search-form" action="/plus/search.php">
+      <input type="text" class="keyword" name="q" placeholder="输入关键词搜索..." value="">
+      <input type="submit" class="submit" value="&#xf002;">
+    </form>
+  </div>
+  <div id="wpcom-post-thumb-2" class="widget widget_post_thumb">
+    <h3 class="widget-title">热门文章</h3>
+    <ul>
+      {dede:arclist typeid='' row='3' titlelen='50' orderby='click'}
+	  <li class="item">
+        <div class="item-img"> <a class="item-img-inner" href="[field:arcurl/]" title="[field:title/]"> <img class="j-lazy" src="/skin/images/lazy.png" data-original="[field:litpic/]" width="480" height="300" alt="[field:title/]"> </a> </div>
+        <div class="item-content">
+          <p class="item-title"><a href="[field:arcurl/]" title="[field:title/]">[field:title/]</a></p>
+          <p class="item-date">[field:pubdate function="MyDate('Y年m月d日',@me)"/]</p>
+        </div>
+      </li>
+	  {/dede:arclist}
+    </ul>
+  </div>
+  <div id="wpcom-image-ad-4" class="widget widget_image_ad"> <a href="javascript:;" target="_blank"> <img class="j-lazy" src="/skin/images/lazy.png" data-original="/skin/images/iqingua3.png"/> </a> </div>
+  <div id="wpcom-post-thumb-8" class="widget widget_post_thumb">
+    <h3 class="widget-title">推荐文章</h3>
+    <ul>
+      {dede:arclist flag='c' row='5' titlelen='50' orderby='pubdate'}
+	  <li class="item">
+        <div class="item-img"> <a class="item-img-inner" href="[field:arcurl/]" title="[field:title/]"> <img class="j-lazy" src="/skin/images/lazy.png" data-original="[field:litpic/]" width="480" height="300" alt="[field:title/]"> </a> </div>
+        <div class="item-content">
+          <p class="item-title"><a href="[field:arcurl/]" title="[field:title/]">[field:title/]</a></p>
+          <p class="item-date">[field:pubdate function="MyDate('Y年m月d日',@me)"/]</p>
+        </div>
+      </li>
+	  {/dede:arclist}
+    </ul>
+  </div>
+  <div id="wpcom-image-ad-12" class="widget widget_image_ad"> <a href="javascript:;" target="_blank"> <img class="j-lazy" src="/skin/images/lazy.png" data-original="/skin/images/xiaomao2.png"/> </a> </div>
+  <div id="wpcom-post-thumb-3" class="widget widget_post_thumb">
+    <h3 class="widget-title">经典文章</h3>
+    <ul>
+      {dede:arclist typeid='' row='10' titlelen='50' orderby='click'}
+	  <li class="item">
+        <div class="item-img"> <a class="item-img-inner" href="[field:arcurl/]" title="[field:title/]"> <img class="j-lazy" src="/skin/images/lazy.png" data-original="[field:litpic/]" width="480" height="300" alt="[field:title/]"> </a> </div>
+        <div class="item-content">
+          <p class="item-title"><a href="[field:arcurl/]" title="[field:title/]">[field:title/]</a></p>
+          <p class="item-date">[field:pubdate function="MyDate('Y年m月d日',@me)"/]</p>
+        </div>
+      </li>
+	  {/dede:arclist}
+    </ul>
+  </div>
+  <div id="tag_cloud-3" class="widget widget_tag_cloud">
+    <h3 class="widget-title">热门标签</h3>
+    <div class="tagcloud">
+        <a href="/" class="tag-cloud-link tag-link-66 tag-link-position-1" style="font-size: 22pt;" aria-label="[field:tag /]">热门标签</a>
+        <a href="/" class="tag-cloud-link tag-link-66 tag-link-position-1" style="font-size: 22pt;" aria-label="[field:tag /]">热门标签</a>
+        <a href="/" class="tag-cloud-link tag-link-66 tag-link-position-1" style="font-size: 22pt;" aria-label="[field:tag /]">热门标签</a>
+        <a href="/" class="tag-cloud-link tag-link-66 tag-link-position-1" style="font-size: 22pt;" aria-label="[field:tag /]">热门标签</a>
+    </div>
+  </div>
+  <div id="wpcom-image-ad-5" class="widget widget_image_ad"> <a href="javascript:;" target="_blank"> <img class="j-lazy" src="{% static 'images/lazy.png' %}" data-original="{% static 'images/iqingua3.png' %}"/> </a> </div>
+</aside>
+ </div>
+  <div class="container hidden-xs j-partner">
+    <div class="sec-panel">
+      <div class="sec-panel-head">
+        <h2><span>友情链接</span> <small>百度权重≥5符合友链交换</small> <a href="http://wpa.qq.com/msgrd?v=3&uin={dede:global.cfg_qq/}&site=qq&menu=yes" target="_blank" class="more">申请友链</a></h2>
+      </div>
+      <div class="sec-panel-body">
+        <div class="list list-links">
+            <a href="/">友情链接</a>
+            <a href="/">友情链接</a>
+            <a href="/">友情链接</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% include 'footer.html' %}
+
+</body>
+</html>
